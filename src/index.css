@@ -2,39 +2,67 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* Morgantonga Solutions Design System - Professional B2B SaaS Contact Validator
+All colors MUST be HSL. Clean teal and white with modern gradients.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
+    /* Brand Colors - Teal Palette */
+    --primary: 180 100% 25%;          /* Deep professional teal */
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 180 100% 35%;    /* Lighter teal for highlights */
+    --primary-dark: 180 100% 20%;     /* Darker teal for depth */
+    
+    /* Background System */
+    --background: 0 0% 100%;          /* Pure white */
+    --foreground: 210 20% 15%;        /* Dark charcoal for text */
+    
+    /* Surface Colors */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
+    --card-foreground: 210 20% 15%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --popover-foreground: 210 20% 15%;
+    
+    /* Interactive Colors */
+    --secondary: 180 25% 96%;         /* Very light teal */
+    --secondary-foreground: 180 100% 25%;
+    --accent: 180 50% 90%;            /* Soft teal accent */
+    --accent-foreground: 180 100% 25%;
+    
+    /* Neutral System */
+    --muted: 210 15% 96%;
+    --muted-foreground: 210 10% 45%;
+    --border: 210 15% 90%;
+    --input: 210 15% 95%;
+    --ring: 180 100% 25%;
+    
+    /* Status Colors */
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 145 70% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 35 85% 55%;
+    --warning-foreground: 0 0% 100%;
+    
+    /* Gradient System */
+    --gradient-primary: linear-gradient(135deg, hsl(180 100% 25%) 0%, hsl(180 100% 35%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(180 100% 25%) 0%, hsl(185 90% 30%) 50%, hsl(190 80% 35%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(180 25% 98%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(180 25% 99%) 0%, hsl(180 15% 96%) 100%);
+    
+    /* Shadow System */
+    --shadow-sm: 0 2px 4px hsl(180 100% 25% / 0.05);
+    --shadow-md: 0 4px 12px hsl(180 100% 25% / 0.1);
+    --shadow-lg: 0 8px 24px hsl(180 100% 25% / 0.15);
+    --shadow-xl: 0 16px 48px hsl(180 100% 25% / 0.2);
+    --shadow-glow: 0 0 40px hsl(180 100% 35% / 0.3);
+    
+    /* Animation Variables */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    
+    /* Spacing & Typography */
 
     --radius: 0.5rem;
 
@@ -94,12 +122,138 @@ All colors MUST be HSL.
   }
 }
 
+/* Custom Utility Classes */
+@layer components {
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+  
+  .gradient-subtle {
+    background: var(--gradient-subtle);
+  }
+  
+  .shadow-custom-sm {
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .shadow-custom-md {
+    box-shadow: var(--shadow-md);
+  }
+  
+  .shadow-custom-lg {
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .shadow-custom-xl {
+    box-shadow: var(--shadow-xl);
+  }
+  
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-spring {
+    transition: var(--transition-spring);
+  }
+  
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .hover-lift {
+    transition: var(--transition-smooth);
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
+  
+  .animate-fade-in-delay {
+    animation: fadeIn 0.8s ease-out 0.2s both;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out;
+  }
+}
+
 @layer base {
   * {
     @apply border-border;
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
   }
 }
