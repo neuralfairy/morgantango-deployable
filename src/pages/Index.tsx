@@ -3,6 +3,9 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle, Shield, Zap, TrendingUp, Star, ArrowRight, Users, BarChart3, Clock } from "lucide-react";
+import heroTeamImage from "@/assets/hero-team.jpg";
+import dataCenterImage from "@/assets/data-center.jpg";
+import analyticsImage from "@/assets/analytics-dashboard.jpg";
 
 const Index = () => {
   const features = [
@@ -64,6 +67,10 @@ const Index = () => {
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-hero-pattern opacity-10" />
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-5"
+          style={{ backgroundImage: `url(${heroTeamImage})` }}
+        />
         <div className="relative container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="text-left animate-fade-in">
@@ -105,13 +112,17 @@ const Index = () => {
             </div>
             
             <div className="relative animate-fade-in lg:animate-fade-in-delay">
-              <div className="relative bg-gradient-card rounded-2xl p-8 shadow-custom-xl">
-                <div className="absolute top-4 left-4 flex space-x-2">
+              <div className="relative bg-gradient-card rounded-2xl p-8 shadow-custom-xl overflow-hidden">
+                <div 
+                  className="absolute inset-0 bg-cover bg-center opacity-20"
+                  style={{ backgroundImage: `url(${analyticsImage})` }}
+                />
+                <div className="absolute top-4 left-4 flex space-x-2 z-10">
                   <div className="w-3 h-3 rounded-full bg-red-400"></div>
                   <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
                   <div className="w-3 h-3 rounded-full bg-green-400"></div>
                 </div>
-                <div className="mt-8 space-y-4">
+                <div className="relative mt-8 space-y-4 z-10">
                   <div className="bg-background rounded-lg p-4 border">
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-sm font-medium">Validation Status</span>

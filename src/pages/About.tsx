@@ -3,6 +3,9 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Shield, Target, Users, Award, CheckCircle, Linkedin, Mail } from "lucide-react";
+import teamMeetingImage from "@/assets/team-meeting.jpg";
+import officeExteriorImage from "@/assets/office-exterior.jpg";
+import dataCenterImage from "@/assets/data-center.jpg";
 
 export default function About() {
   const values = [
@@ -133,33 +136,46 @@ export default function About() {
       {/* Mission Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-8">
-              Our Mission
-            </h2>
-            <p className="text-xl text-muted-foreground leading-relaxed mb-12">
-              To empower businesses with the most accurate and reliable contact validation 
-              technology, enabling them to reach their prospects effectively while maintaining 
-              the highest standards of data security and compliance.
-            </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {values.map((value, index) => (
-                <div 
-                  key={index} 
-                  className="text-center animate-fade-in"
-                  style={{animationDelay: `${index * 0.1}s`}}
-                >
-                  <div className="mb-4 flex justify-center">
-                    {value.icon}
-                  </div>
-                  <h3 className="font-semibold text-lg mb-2">{value.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {value.description}
-                  </p>
-                </div>
-              ))}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
+                Our Mission
+              </h2>
+              <p className="text-xl text-muted-foreground leading-relaxed mb-8">
+                To empower businesses with the most accurate and reliable contact validation 
+                technology, enabling them to reach their prospects effectively while maintaining 
+                the highest standards of data security and compliance.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                We believe that quality data is the foundation of successful business relationships, 
+                and we're committed to providing the tools that make that possible.
+              </p>
             </div>
+            <div className="relative">
+              <img 
+                src={teamMeetingImage} 
+                alt="Morgantonga Solutions team collaborating on data validation strategies" 
+                className="rounded-2xl shadow-custom-xl w-full h-auto"
+              />
+            </div>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {values.map((value, index) => (
+              <div 
+                key={index} 
+                className="text-center animate-fade-in"
+                style={{animationDelay: `${index * 0.1}s`}}
+              >
+                <div className="mb-4 flex justify-center">
+                  {value.icon}
+                </div>
+                <h3 className="font-semibold text-lg mb-2">{value.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {value.description}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -198,6 +214,27 @@ export default function About() {
               Our experienced team combines deep industry knowledge with cutting-edge 
               technology expertise to deliver exceptional results.
             </p>
+          </div>
+
+          {/* Infrastructure Showcase */}
+          <div className="mb-16">
+            <div className="relative rounded-2xl overflow-hidden shadow-custom-xl">
+              <img 
+                src={dataCenterImage} 
+                alt="Our secure data infrastructure powering Contact Validator" 
+                className="w-full h-64 md:h-80 object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-transparent flex items-center">
+                <div className="text-white p-8">
+                  <h3 className="text-2xl md:text-3xl font-bold mb-4">
+                    State-of-the-Art Infrastructure
+                  </h3>
+                  <p className="text-lg opacity-90">
+                    Our secure, high-performance data centers ensure 99.9% uptime and lightning-fast validation.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -319,8 +356,12 @@ export default function About() {
                       </Button>
                     </div>
                   </div>
-                  <div className="bg-muted rounded-lg h-64 flex items-center justify-center">
-                    <p className="text-muted-foreground">Interactive Map Coming Soon</p>
+                  <div className="relative">
+                    <img 
+                      src={officeExteriorImage} 
+                      alt="Morgantonga Solutions headquarters in Naperville, Illinois" 
+                      className="rounded-lg w-full h-64 object-cover"
+                    />
                   </div>
                 </div>
               </CardContent>
